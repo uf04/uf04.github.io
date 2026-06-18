@@ -7,44 +7,92 @@
     padding: 0;
 }
 
+html {
+    scroll-behavior: smooth; /* 메뉴 클릭 시 부드럽게 스크롤되는 마법의 코드 */
+}
+
 body {
     font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
     background-color: #121212;
     color: #ffffff;
     line-height: 1.6;
     letter-spacing: -0.5px;
+    padding-top: 70px; /* 상단 고정 메뉴바 두께만큼 바디 상단에 여백 확보 */
 }
 
 /* ==========================================
-   2. 헤더 영역 스타일 (Header)
+   2. 상단 고정 메뉴바 스타일 (Navigation Bar)
+   ========================================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background-color: rgba(18, 18, 18, 0.85); /* 뒤 배경이 살짝 비치는 고급스러운 투명도 */
+    backdrop-filter: blur(10px); /* 흐림 효과로 트렌디한 UI 연출 */
+    display: flex;
+    justify-content: flex-end; /* 오른쪽 정렬 */
+    align-items: center;
+    padding: 0 40px;
+    z-index: 1000; /* 항상 화면 최상단에 위치 */
+    border-bottom: 1px solid #222222;
+}
+
+.nav-links {
+    display: flex;
+    gap: 35px; /* 메뉴 글자 간격 */
+}
+
+.nav-links a {
+    color: #aaaaaa;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+/* 메뉴 마우스 호버 효과 */
+.nav-links a:hover {
+    color: #ffffff;
+}
+
+/* ==========================================
+   3. 헤더 및 자기소개 영역 스타일 (Header / ABOUT)
    ========================================== */
 header {
     text-align: center;
-    padding: 100px 20px 80px 20px;
+    padding: 140px 20px 100px 20px;
     background: linear-gradient(180deg, #1e1e1e 0%, #121212 100%);
+    scroll-margin-top: 70px; /* 이동 시 메뉴바에 글씨가 가려지지 않게 맞춰주는 여백 */
 }
 
 header h1 {
-    font-size: 2.8rem;
+    font-size: 3rem; /* 여승찬입니다 큰 글씨 */
     font-weight: 800;
-    letter-spacing: 2px;
+    letter-spacing: -1px;
     color: #ffffff;
-    margin-bottom: 12px;
+    margin-bottom: 24px;
 }
 
 header p {
-    color: #a0a0a0;
-    font-size: 1.1rem;
+    color: #cccccc;
+    font-size: 1.2rem; /* 부산 토박이 작은 글씨 */
     font-weight: 400;
+    max-width: 700px;
+    margin: 0 auto;
+    word-break: keep-all; /* 모바일에서 단어 단위 줄바꿈으로 깔끔하게 */
 }
 
 /* ==========================================
-   3. 섹션 공통 스타일 (Section Layout)
+   4. 섹션 공통 스타일 (Section Layout)
    ========================================== */
 .portfolio-section {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 60px 20px;
+    padding: 80px 20px;
+    scroll-margin-top: 70px; /* 메뉴 이동 시 상단 고정바 두께만큼 오프셋 설정 */
 }
 
 .portfolio-section h2 {
@@ -57,7 +105,7 @@ header p {
 }
 
 /* ==========================================
-   4. 반응형 플렉스 시스템 (Flex Grid System)
+   5. 반응형 플렉스 시스템 (Flex Grid System)
    ========================================== */
 .flex-container {
     display: flex;
@@ -68,7 +116,7 @@ header p {
 }
 
 /* ==========================================
-   5. 카드 UI 기본 구성 (Card UI Base)
+   6. 카드 UI 기본 구성 (Card UI Base)
    ========================================== */
 .card {
     background-color: #1e1e1e;
@@ -116,7 +164,7 @@ header p {
 }
 
 /* ==========================================
-   6. 콘텐츠별 비율 및 크기 제한 (Sizing Strategy)
+   7. 콘텐츠별 비율 및 크기 제한 (Sizing Strategy)
    ========================================== */
 .card.vertical {
     max-width: 340px; 
@@ -127,7 +175,7 @@ header p {
 }
 
 /* ==========================================
-   7. 유튜브 동적 통계 스타일 (YouTube Stats)
+   8. 유튜브 동적 통계 스타일 (YouTube Stats)
    ========================================== */
 .stats {
     display: flex;
@@ -147,7 +195,7 @@ header p {
 }
 
 /* ==========================================
-   8. 랜딩 페이지 외부 링크 카드 (Web Project Card)
+   9. 랜딩 페이지 외부 링크 카드 (Web Project Card)
    ========================================== */
 .web-card {
     display: block;
@@ -184,19 +232,36 @@ header p {
 }
 
 /* ==========================================
-   9. 반응형 모바일 최적화 (Responsive Media Query)
+   10. 반응형 모바일 최적화 (Responsive Media Query)
    ========================================== */
 @media (max-width: 768px) {
+    .navbar {
+        padding: 0 20px;
+        justify-content: center; /* 모바일에서는 메뉴 가로폭 때문에 중앙정렬이 깔끔함 */
+    }
+
+    .nav-links {
+        gap: 18px;
+    }
+
+    .nav-links a {
+        font-size: 0.8rem;
+    }
+
     header {
-        padding: 70px 20px 50px 20px;
+        padding: 100px 20px 60px 20px;
     }
     
     header h1 {
         font-size: 2rem;
     }
+
+    header p {
+        font-size: 1rem;
+    }
     
     .portfolio-section {
-        padding: 40px 20px;
+        padding: 50px 20px;
     }
     
     .card.vertical, 

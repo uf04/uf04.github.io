@@ -1,14 +1,14 @@
-// 유튜브 API 키 (구글 클라우드 콘솔에서 발급받은 키 입력)
+// 유튜브 API 키 (구글 클라우드 콘솔에서 발급받은 본인의 키 입력)
 const YOUTUBE_API_KEY = 'AIzaSyBslbhmDHYGQVzmS6Zec4ySBtnBxhsp7jc';
 
-// 표시할 유튜브 영상 ID 목록 (쇼츠 URL의 맨 끝 알파벳+숫자 조합 입력)
+// 표시할 유튜브 영상 ID 목록 (쇼츠 주소 맨 뒤의 고유 코드들 입력)
 const videoIds = ['-a9qK04fWf4']; 
 
 async function fetchYouTubeStats() {
     const grid = document.getElementById('video-grid');
     if (!grid) return;
     
-    // 이전에 생성된 내용 초기화
+    // 이전 생성 피드 초기화
     grid.innerHTML = '';
     
     const idsString = videoIds.join(',');
