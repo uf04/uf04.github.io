@@ -22,7 +22,7 @@ async function fetchYouTubeStats() {
             const thumbnail = item.snippet.thumbnails.high.url;
 
             const cardHTML = `
-                <div class="card">
+                <div class="card vertical">
                     <img src="${thumbnail}" alt="${title}" class="mockup-img">
                     <div class="card-info">
                         <h3>${title}</h3>
