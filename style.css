@@ -1,54 +1,212 @@
-/* 기본 리셋 및 다크 테마 */
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Pretendard', sans-serif; background-color: #121212; color: #ffffff; line-height: 1.6; }
-
-header { text-align: center; padding: 100px 20px; background: linear-gradient(180deg, #1a1a1a 0%, #121212 100%); }
-header h1 { font-size: 3rem; font-weight: 800; letter-spacing: 2px; }
-header p { color: #888; font-size: 1.2rem; margin-top: 10px; }
-
-.portfolio-section { max-width: 1200px; margin: 0 auto; padding: 50px 20px; }
-.portfolio-section h2 { font-size: 1.8rem; margin-bottom: 30px; border-bottom: 2px solid #333; padding-bottom: 10px; }
-
-/* 반응형 플렉스 시스템 (가운데 정렬) */
-.flex-container { 
-    display: flex; 
-    flex-wrap: wrap; 
-    justify-content: center; /* 아이템이 하나라도 가운데로 모임 */
-    gap: 30px; 
+/* ==========================================
+   1. 기본 리셋 및 전역 스타일 (Reset & Base)
+   ========================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-/* 카드 UI 공통 */
-.card { 
-    background-color: #1e1e1e; 
-    border-radius: 12px; 
-    overflow: hidden; 
-    transition: transform 0.3s ease; 
-    width: 100%; 
+body {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+    background-color: #121212; /* 깊고 몰입감 있는 다크 테마 배경 */
+    color: #ffffff;
+    line-height: 1.6;
+    letter-spacing: -0.5px;
 }
-.card:hover { transform: translateY(-10px); }
 
-/* 비율에 맞춘 카드 최대 크기 제한 */
-.card.vertical { max-width: 350px; }   /* 세로형(숏폼, 포스터)은 슬림하게 */
-.card.horizontal { max-width: 800px; } /* 가로형(굿즈)은 넓게 */
+/* ==========================================
+   2. 헤더 영역 스타일 (Header)
+   ========================================== */
+header {
+    text-align: center;
+    padding: 100px 20px 80px 20px;
+    background: linear-gradient(180deg, #1e1e1e 0%, #121212 100%);
+}
 
-.mockup-img { width: 100%; height: auto; display: block; }
-.card-info { padding: 20px; }
-.card-info h3 { font-size: 1.2rem; margin-bottom: 10px; }
+header h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #ffffff;
+    margin-bottom: 12px;
+}
 
-/* 통계 및 웹 링크 카드 스타일 유지 */
-.stats { display: flex; gap: 15px; color: #aaaaaa; font-size: 0.9rem; font-weight: bold; }
-.stats span { display: flex; align-items: center; gap: 5px; }
+header p {
+    color: #a0a0a0;
+    font-size: 1.1rem;
+    font-weight: 400;
+}
 
-.web-card { 
-    display: block; 
-    padding: 30px; 
-    background-color: #2c2c2c; 
-    text-decoration: none; 
-    color: white; 
-    border-radius: 12px; 
-    text-align: center; 
-    transition: background-color 0.3s; 
+/* ==========================================
+   3. 섹션 공통 스타일 (Section Layout)
+   ========================================== */
+.portfolio-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+.portfolio-section h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 35px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #2a2a2a; /* 간결하고 모던한 구분선 */
+    color: #ffffff;
+}
+
+/* ==========================================
+   4. 반응형 플렉스 시스템 (Flex Grid System)
+   ========================================== */
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* 콘텐츠가 1개만 있어도 좌측에 치우치지 않고 가운데 정렬 */
+    gap: 30px; /* 카드 사이의 여유로운 간격 */
     width: 100%;
 }
-.web-card.horizontal { max-width: 800px; }
-.web-card:hover { background-color: #444; }
+
+/* ==========================================
+   5. 카드 UI 기본 구성 (Card UI Base)
+   ========================================== */
+.card {
+    background-color: #1e1e1e;
+    border-radius: 14px;
+    overflow: hidden;
+    width: 100%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
+}
+
+/* 마우스 호버 시 부드럽게 떠오르는 효과 */
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+}
+
+.img-container {
+    width: 100%;
+    background-color: #151515; /* 이미지 로딩 전 어색함을 줄여주는 기본 배경색 */
+    overflow: hidden;
+}
+
+.mockup-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.card-info {
+    padding: 24px;
+}
+
+.card-info h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.card-info p {
+    color: #aaaaaa;
+    font-size: 0.95rem;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+/* ==========================================
+   6. 콘텐츠별 비율 및 크기 제한 (Sizing Strategy)
+   ========================================== */
+
+/* [세로형 콘텐츠] 숏폼 영상 및 포스터: 너무 거대해지지 않도록 최대 너비 제한 */
+.card.vertical {
+    max-width: 340px; 
+}
+
+/* [가로형 콘텐츠] 오프라인 굿즈: 넓고 시원하게 강점을 보여줄 수 있도록 설정 */
+.card.horizontal {
+    max-width: 850px;
+}
+
+/* ==========================================
+   7. 유튜브 동적 통계 스타일 (YouTube Stats)
+   ========================================== */
+.stats {
+    display: flex;
+    gap: 18px;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #2a2a2a;
+    color: #d4d4d4;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.stats span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* ==========================================
+   8. 랜딩 페이지 외부 링크 카드 (Web Project Card)
+   ========================================== */
+.web-card {
+    display: block;
+    width: 100%;
+    padding: 40px 30px;
+    background: linear-gradient(135deg, #2c2c2c 0%, #1e1e1e 100%);
+    text-decoration: none;
+    color: #ffffff;
+    border-radius: 14px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    transition: background 0.3s, transform 0.3s;
+}
+
+.web-card.horizontal {
+    max-width: 850px;
+}
+
+.web-card:hover {
+    transform: translateY(-5px);
+    background: linear-gradient(135deg, #383838 0%, #252525 100%);
+}
+
+.web-card h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.web-card p {
+    color: #b0b0b0;
+    font-size: 0.95rem;
+}
+
+/* ==========================================
+   9. 반응형 모바일 최적화 (Responsive Media Query)
+   ========================================== */
+@media (max-width: 768px) {
+    header {
+        padding: 70px 20px 50px 20px;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .portfolio-section {
+        padding: 40px 20px;
+    }
+    
+    /* 모바일 화면에서는 모든 카드가 화면 너비에 자연스럽게 맞춰지도록 설정 */
+    .card.vertical, 
+    .card.horizontal, 
+    .web-card.horizontal {
+        max-width: 100%;
+    }
+}
