@@ -9,7 +9,7 @@
 
 body {
     font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
-    background-color: #121212; /* 깊고 몰입감 있는 다크 테마 배경 */
+    background-color: #121212;
     color: #ffffff;
     line-height: 1.6;
     letter-spacing: -0.5px;
@@ -52,7 +52,7 @@ header p {
     font-weight: 700;
     margin-bottom: 35px;
     padding-bottom: 12px;
-    border-bottom: 2px solid #2a2a2a; /* 간결하고 모던한 구분선 */
+    border-bottom: 2px solid #2a2a2a;
     color: #ffffff;
 }
 
@@ -62,8 +62,8 @@ header p {
 .flex-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; /* 콘텐츠가 1개만 있어도 좌측에 치우치지 않고 가운데 정렬 */
-    gap: 30px; /* 카드 사이의 여유로운 간격 */
+    justify-content: center;
+    gap: 30px;
     width: 100%;
 }
 
@@ -79,7 +79,6 @@ header p {
     transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
 }
 
-/* 마우스 호버 시 부드럽게 떠오르는 효과 */
 .card:hover {
     transform: translateY(-8px);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
@@ -87,7 +86,7 @@ header p {
 
 .img-container {
     width: 100%;
-    background-color: #151515; /* 이미지 로딩 전 어색함을 줄여주는 기본 배경색 */
+    background-color: #151515;
     overflow: hidden;
 }
 
@@ -119,13 +118,10 @@ header p {
 /* ==========================================
    6. 콘텐츠별 비율 및 크기 제한 (Sizing Strategy)
    ========================================== */
-
-/* [세로형 콘텐츠] 숏폼 영상 및 포스터: 너무 거대해지지 않도록 최대 너비 제한 */
 .card.vertical {
     max-width: 340px; 
 }
 
-/* [가로형 콘텐츠] 오프라인 굿즈: 넓고 시원하게 강점을 보여줄 수 있도록 설정 */
 .card.horizontal {
     max-width: 850px;
 }
@@ -203,7 +199,6 @@ header p {
         padding: 40px 20px;
     }
     
-    /* 모바일 화면에서는 모든 카드가 화면 너비에 자연스럽게 맞춰지도록 설정 */
     .card.vertical, 
     .card.horizontal, 
     .web-card.horizontal {
